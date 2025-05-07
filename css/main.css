@@ -1,0 +1,367 @@
+/*
+ * main.css - Main stylesheet for Offshore Rapport v3
+ * Imports all modular CSS files in the correct order
+ */
+
+/* 1. Variables */
+@import 'variables.css';
+
+/* 2. Base Styles */
+@import 'base/_reset.css';
+@import 'base/_typography.css';
+
+/* 3. Layout */
+@import 'layout.css'; /* Contains grid, containers */
+
+/* 4. Components */
+@import 'components/buttons.css';
+@import 'components/cards.css';
+@import 'components/navigation.css';
+/* Add other components as needed */
+/* @import 'components/forms.css'; */
+/* @import 'components/footer.css'; */
+/* @import 'components/header.css'; */ /* If splitting header styles */
+
+/* 5. Page-Specific Styles (Optional, can be large) */
+/* @import 'pages/homepage.css'; */
+/* @import 'pages/article.css'; */
+/* @import 'pages/category.css'; */
+
+/* 6. Utilities & Animations */
+@import 'animations.css'; /* Contains keyframes */
+/* @import 'utils/utilities.css'; /* Contains helper classes like .text-center etc. */
+
+
+/* --- Fallback to styles from the large styles.css --- */
+/* Incorporate necessary styles from the original large styles.css here, */
+/* preferably organized into the modular files above over time. */
+/* For now, you might copy sections from the old styles.css into */
+/* the relevant new files or keep some overrides here temporarily. */
+
+/* Example: Ensure header styles are applied */
+.site-header {
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--color-border-light);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  box-shadow: var(--shadow-sm);
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+ /* Add other essential styles from the old styles.css */
+/* Footer styles */
+.site-footer {
+    background-color: var(--color-neutral-900);
+    color: var(--color-neutral-400);
+    padding: var(--space-8) 0 var(--space-6);
+    font-size: var(--font-size-sm);
+  }
+  .footer-content {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-6); margin-bottom: var(--space-6);
+  }
+  .footer-branding .footer-logo {
+    font-family: var(--font-heading); font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-lg); color: var(--color-white); text-decoration: none;
+    margin-bottom: var(--space-2); display: block;
+  }
+  .footer-tagline { font-style: italic; color: var(--color-gray-500); }
+  .footer-nav-column h4 {
+    color: var(--color-white); margin-bottom: var(--space-3);
+    font-size: var(--font-size-base); text-transform: uppercase; letter-spacing: 0.05em;
+  }
+  .footer-nav-column ul { list-style: none; margin: 0; padding: 0; }
+  .footer-nav-column ul li { margin-bottom: var(--space-2); }
+  .footer-nav-column ul a { color: var(--color-gray-400); text-decoration: none; }
+  .footer-nav-column ul a:hover { color: var(--color-white); text-decoration: underline; }
+
+  .footer-bottom {
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    padding-top: var(--space-6); border-top: 1px solid var(--color-gray-700);
+    gap: var(--space-3);
+  }
+  @media (min-width: 768px) {
+    .footer-bottom { flex-direction: row; justify-content: space-between; text-align: left; }
+  }
+  .social-links { display: flex; gap: var(--space-3); }
+  .social-links a {
+    display: flex; align-items: center; justify-content: center;
+    width: 32px; height: 32px; border-radius: 50%;
+    background-color: var(--color-gray-700); color: var(--color-white);
+    text-decoration: none; transition: background-color 0.2s ease;
+  }
+  .social-links a:hover { background-color: var(--color-primary); }
+
+
+/* General Newsletter Section */
+    .newsletter {
+      background-color: var(--color-dark-blue, var(--color-primary-800)); /* Added fallback */
+      color: var(--color-white);
+      padding: var(--space-8) 0;
+      text-align: center;
+    }
+    .newsletter-content { max-width: 600px; margin: 0 auto; }
+    .newsletter h2 { color: var(--color-white); margin-bottom: var(--space-3); }
+    .newsletter p { margin-bottom: var(--space-6); opacity: 0.9; font-size: var(--font-size-md); }
+    .newsletter-form { display: flex; gap: var(--space-3); max-width: 500px; margin: 0 auto; }
+    .newsletter-form input[type="email"] {
+      flex-grow: 1; padding: var(--space-3); border: 1px solid var(--color-gray-500);
+      border-radius: var(--border-radius-md); background-color: var(--color-white);
+      color: var(--color-gray-800); font-size: var(--font-size-base);
+    }
+    .newsletter-form input::placeholder { color: var(--color-gray-500); }
+    .newsletter-form .btn { white-space: nowrap; }
+
+    /* Homepage specific */
+    .featured-article {
+      padding: var(--space-8) 0;
+      background-color: var(--color-dark-blue, var(--color-primary-900)); /* Added fallback */
+      color: var(--color-white);
+    }
+    .featured-article .article-title { color: var(--color-white); }
+    .featured-article .lead { color: var(--color-neutral-200); }
+    .featured-article .byline, .featured-article .metadata { color: var(--color-neutral-300); }
+    .featured-article .category-pill { margin-bottom: var(--space-3); }
+    .featured-article .featured-image {
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+     .featured-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      margin-bottom: var(--space-8);
+    }
+    @media (min-width: 768px) { .featured-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .featured-grid { grid-template-columns: 7fr 5fr; gap: var(--space-8); } }
+
+    .category-highlights { padding: var(--space-8) 0; background-color: var(--color-background-light); }
+    .category-section { margin-bottom: var(--space-8); }
+    .category-heading {
+      font-family: var(--font-heading);
+      font-weight: var(--font-weight-black);
+      font-size: var(--font-size-xl);
+      text-transform: uppercase;
+      letter-spacing: var(--letter-spacing-wide);
+      border-bottom: 3px solid;
+      padding-bottom: var(--space-2);
+      margin-bottom: var(--space-6);
+    }
+     .category-section.fisheries .category-heading { color: var(--color-fisheries); border-color: var(--color-fisheries); }
+     .category-section.marinetech .category-heading { color: var(--color-marinetech); border-color: var(--color-marinetech); }
+     .category-section.markets .category-heading { color: var(--color-markets); border-color: var(--color-markets); }
+     .category-section.offshore-energy .category-heading { color: var(--color-offshore-energy); border-color: var(--color-offshore-energy); }
+     .category-section.policy .category-heading { color: var(--color-policy); border-color: var(--color-policy); }
+
+     .article-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      margin-bottom: var(--space-8);
+    }
+    @media (min-width: 640px) { .article-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .article-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .loading-indicator { padding: var(--space-4); text-align: center; color: var(--color-text-secondary);}
+    .section-footer { text-align: center; margin-top: var(--space-6); }
+
+    /* Podcast Section */
+    .podcast-container { display: grid; grid-template-columns: 1fr; gap: var(--space-6); background-color: var(--color-surface); padding: var(--space-6); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-md); }
+    @media (min-width: 768px) { .podcast-container { grid-template-columns: 1fr 2fr; align-items: center; } }
+    .podcast-image img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: var(--border-radius-md); }
+    .podcast-title { font-size: var(--font-size-xl); margin-bottom: var(--space-3); }
+    .podcast-description { color: var(--color-text-secondary); margin-bottom: var(--space-4); }
+    .podcast-meta { margin-bottom: var(--space-4); }
+    .podcast-player audio { width: 100%; }
+    .podcast-content .btn { margin-top: var(--space-4); }
+
+     /* Category Pills */
+    .category-pill {
+      display: inline-block;
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-full);
+      font-family: var(--font-heading);
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+      letter-spacing: var(--letter-spacing-wide);
+      margin-bottom: var(--space-2);
+      color: var(--color-white); /* Default pill text color */
+    }
+    .category-pill.fisheries { background-color: var(--color-fisheries); }
+    .category-pill.marinetech { background-color: var(--color-marinetech); color: var(--color-neutral-800); }
+    .category-pill.markets { background-color: var(--color-markets); }
+    .category-pill.offshore-energy { background-color: var(--color-offshore-energy); }
+    .category-pill.policy { background-color: var(--color-policy); }
+
+    /* Article Page Specific */
+    .article-page { background-color: var(--color-white); }
+    .article-header { /* Hero section for individual articles */
+      position: relative; padding: var(--space-8) 0 var(--space-6);
+      background-color: var(--color-neutral-800); /* Default, can be category specific */
+      color: var(--color-white);
+    }
+    .article-header .pattern-background { /* Can be used for subtle texture */
+      position: absolute; top:0; left:0; width:100%; height:100%; opacity: 0.05; z-index:0;
+    }
+    .article-header .container { position: relative; z-index: 1; }
+    .article-header .article-title { color: var(--color-white); font-size: var(--font-size-4xl); }
+    .article-header .category-pill { margin-bottom: var(--space-3); }
+    .article-header .byline, .article-header .metadata { color: var(--color-neutral-300); }
+    .article-header .article-meta { display: flex; align-items: center; gap: var(--space-3); margin-top: var(--space-3); flex-wrap: wrap; }
+    .share-links { margin-left: auto; display:flex; gap: var(--space-2); }
+    .share-btn, .bookmark-btn {
+      background: rgba(255,255,255,0.1); color: var(--color-white);
+      border: 1px solid rgba(255,255,255,0.2); border-radius: var(--border-radius-md);
+      padding: var(--space-2) var(--space-3); font-size: var(--font-size-xs);
+      cursor: pointer; transition: background-color 0.2s;
+    }
+    .share-btn:hover, .bookmark-btn:hover { background: rgba(255,255,255,0.2); }
+
+    /* Category-specific article headers */
+    .article-page.fisheries .article-header { background-color: var(--color-fisheries); }
+    .article-page.marinetech .article-header { background-color: var(--color-marinetech); }
+    .article-page.marinetech .article-title,
+    .article-page.marinetech .byline,
+    .article-page.marinetech .metadata { color: var(--color-neutral-800); }
+    .article-page.marinetech .share-btn,
+    .article-page.marinetech .bookmark-btn {
+        background: rgba(0,0,0,0.05); color: var(--color-neutral-800); border-color: rgba(0,0,0,0.1);
+    }
+     .article-page.markets .article-header { background-color: var(--color-markets); }
+     .article-page.offshore-energy .article-header { background-color: var(--color-offshore-energy); }
+     .article-page.policy .article-header { background-color: var(--color-policy); }
+
+
+    .article-hero { /* Main image for article */
+      margin-bottom: var(--space-6);
+    }
+    .hero-image { position: relative; margin-bottom: var(--space-2); }
+    .hero-image img { border-radius: var(--border-radius-md); display: block; width: 100%; }
+    .hero-image figcaption { font-size: var(--font-size-sm); color: var(--color-neutral-500); margin-top: var(--space-2); text-align: center; }
+
+    .article-content { padding: var(--space-8) 0; }
+    .article-content .container-article { /* Uses a narrower container for readability */
+      display: grid;
+      grid-template-columns: 1fr; /* Mobile first */
+      gap: var(--space-8);
+    }
+    @media (min-width: 1024px) {
+      .article-content .container-article { grid-template-columns: minmax(0, 2.5fr) minmax(0, 1fr); } /* Main content and sidebar */
+    }
+    .content-wrapper { max-width: 720px; /* Prose max width */ }
+    .content-wrapper img { border-radius: var(--border-radius-md); margin: var(--space-6) 0; } /* Images within article body */
+    .article-image figcaption { font-size: var(--font-size-sm); color: var(--color-neutral-500); margin-top: var(--space-2); font-style: italic; }
+
+    .article-content .article-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-top: var(--space-6);
+      padding-top: var(--space-6);
+      border-top: 1px solid var(--color-neutral-200);
+    }
+    .tag {
+      display: inline-block;
+      padding: var(--space-1) var(--space-3);
+      background-color: var(--color-neutral-200);
+      color: var(--color-neutral-700);
+      border-radius: var(--border-radius-full);
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-medium);
+      text-decoration: none;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .tag:hover {
+      background-color: var(--color-neutral-300);
+      transform: translateY(-2px);
+    }
+
+    .article-sidebar { padding-top: var(--space-2); } /* No border needed if using grid gap */
+    @media (min-width: 1024px) {
+      .article-sidebar { position: sticky; top: calc(var(--site-header-height, 80px) + var(--space-6)); height:max-content; }
+    }
+    .author-bio { margin-bottom: var(--space-6); background-color: var(--color-neutral-100); padding: var(--space-4); border-radius: var(--border-radius-md); }
+    .author-image { width: 60px; height: 60px; border-radius: 50%; margin-bottom: var(--space-3); object-fit: cover; }
+    .author-bio h3 { font-size: var(--font-size-md); margin-bottom: var(--space-1); }
+    .author-bio p { font-size: var(--font-size-sm); color: var(--color-neutral-600); }
+
+    .related-articles, .newsletter-widget { margin-bottom: var(--space-6); background-color: var(--color-neutral-100); padding: var(--space-4); border-radius: var(--border-radius-md); }
+    .related-articles h3, .newsletter-widget h3 { font-size: var(--font-size-md); margin-bottom: var(--space-3); }
+    .related-articles ul { list-style: none; margin: 0; padding:0; }
+    .related-articles li { margin-bottom: var(--space-3); }
+    .related-articles li a { font-weight: var(--font-weight-medium); font-size: var(--font-size-sm); }
+    .newsletter-widget p { font-size: var(--font-size-sm); margin-bottom: var(--space-3); }
+    .sidebar-form { display: flex; flex-direction: column; gap: var(--space-2); }
+    .sidebar-form input[type="email"] {
+      padding: var(--space-2); border: 1px solid var(--color-neutral-300); border-radius: var(--border-radius-sm);
+      font-size: var(--font-size-sm);
+    }
+    .sidebar-form .btn { width: 100%; }
+
+    .more-articles { padding: var(--space-8) 0; background-color: var(--color-background-light); }
+    .section-title { font-size: var(--font-size-2xl); margin-bottom: var(--space-6); text-align: center; color: var(--color-neutral-800); }
+
+    /* Responsive */
+    @media (max-width: 1023px) {
+          .main-nav {
+            display: none; /* Hide desktop nav */
+          }
+          .menu-toggle {
+            display: block; /* Show hamburger */
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .menu-toggle {
+            display: none; /* Hide hamburger on desktop */
+          }
+          .main-nav {
+            display: flex; /* Show desktop nav */
+          }
+          .mobile-nav {
+            display: none; /* Hide mobile nav */
+          }
+        }
+     /* Add responsive styles from old styles.css */
+    @media (max-width: 639px) {
+      :root { font-size: 15px; }
+      h1, .article-title.page-hero-title { font-size: var(--font-size-2xl); }
+      h2, .section-title { font-size: var(--font-size-xl); }
+      h3 { font-size: var(--font-size-lg); }
+      .lead { font-size: var(--font-size-md); }
+      .container { --container-width: 100%; --container-padding: var(--space-4); }
+      .featured-grid { gap: var(--space-4); }
+      .featured-image { order: -1; margin-bottom: var(--space-4); }
+      .article-grid { gap: var(--space-4); }
+      .article-card.col-span-2, .article-card.md\:col-span-2 { grid-column: span 1; }
+      .newsletter-form { flex-direction: column; width: 100%; }
+      .newsletter-form button { width: 100%; margin-top: var(--space-3); }
+    }
+    @media (min-width: 640px) and (max-width: 1023px) {
+        h1, .article-title.page-hero-title { font-size: calc(var(--font-size-2xl) * 1.2); }
+       .lead { font-size: var(--font-size-lg); }
+        .container { --container-width: 95%; }
+    }
+    @media (max-width: 767px) {
+          .article-header { padding: var(--space-6) 0; }
+          .article-header .article-title { font-size: var(--font-size-2xl); margin-bottom: var(--space-3); }
+          .article-header .article-meta { flex-direction: column; align-items: flex-start; gap: var(--space-2); }
+          .share-links { margin-top: var(--space-3); margin-left: 0; }
+    }
+     @media (max-width: 1023px) {
+      .article-content .container-article { display: block; } /* Stack sidebar below content */
+      .article-sidebar { margin-top: var(--space-8); padding-left: 0; border-left: none; border-top: 1px solid var(--color-neutral-200); padding-top: var(--space-6); }
+    }
+
+
+/* Add other essential global styles... */

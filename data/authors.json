@@ -1,0 +1,43 @@
+[
+  {
+    "id": "author-mpj",
+    "name": "Marine Policy Journal",
+    "role": "Publication",
+    "bio": "Leading international journal dedicated to the formulation of marine policy and the study of its effects.",
+    "avatar": null,
+    "socialLinks": {
+      "website": "https://www.sciencedirect.com/journal/marine-policy"
+    }
+  },
+  {
+    "id": "author-hshaw",
+    "name": "Dr. Helena Shaw",
+    "role": "Senior Energy Analyst",
+    "bio": "Dr. Shaw specializes in renewable energy technologies, market trends, and energy policy analysis within the offshore sector for Offshore Rapport.",
+    "avatar": "https://source.unsplash.com/random/100x100/?woman,professional,portrait",
+    "socialLinks": {
+      "linkedin": "#",
+      "twitter": "#"
+    }
+  },
+  {
+    "id": "author-jchen",
+    "name": "Jian Chen",
+    "role": "Technology Correspondent",
+    "bio": "Focuses on emerging technologies impacting aquaculture, fisheries, and marine robotics.",
+    "avatar": "https://source.unsplash.com/random/100x100/?man,asian,tech",
+    "socialLinks": {
+        "website": "#"
+    }
+  },
+  {
+    "id": "author-unfao",
+    "name": "FAO Contributor",
+    "role": "Policy Analyst",
+    "bio": "Provides insights based on reports and data from the Food and Agriculture Organization of the United Nations.",
+    "avatar": null,
+    "socialLinks": {
+        "website": "https://www.fao.org/fishery/en"
+    }
+  }
+]

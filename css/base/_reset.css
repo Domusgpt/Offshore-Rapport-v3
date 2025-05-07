@@ -1,0 +1,103 @@
+/* Use the _reset.css provided in the prompt */
+/* [Content of css/base/_reset.css] */
+/*
+ * CSS Reset
+ * Offshore Rapport v2
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body); /* Use variable */
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal); /* Use variable */
+  color: var(--color-text-primary); /* Use variable */
+  background-color: var(--color-background); /* Use variable */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh; /* Added */
+  text-rendering: optimizeSpeed; /* Added */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading); /* Use variable */
+  font-weight: var(--font-weight-bold); /* Use variable */
+  line-height: var(--line-height-tight); /* Use variable */
+  margin-bottom: var(--space-4); /* Use variable */
+}
+
+p {
+  margin-bottom: var(--space-4); /* Use variable */
+}
+
+a {
+  color: var(--color-primary); /* Use variable */
+  text-decoration: none;
+  transition: var(--transition-normal) color; /* Use variable */
+}
+
+a:hover {
+  color: var(--color-primary-dark); /* Use variable */
+}
+
+img,
+picture,
+video,
+canvas, /* Added */
+svg { /* Added */
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+/* Remove list styles */
+ul[class],
+ol[class] {
+  list-style: none;
+  padding: 0; /* Ensure padding is reset */
+}
+
+/* Remove default button styles */
+button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0; /* Reset padding */
+  color: inherit; /* Inherit text color */
+}
+
+/* Focus handling (accessibility) */
+:focus-visible { /* Use focus-visible for better accessibility */
+  outline: 3px solid var(--color-primary-300); /* Use variable */
+  outline-offset: 2px;
+}
+/* Hide focus styles for mouse users if desired, but keep for keyboard */
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}

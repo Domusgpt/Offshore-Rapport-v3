@@ -1,0 +1,42 @@
+[
+  {
+    "id": "cat-fisheries",
+    "name": "Fisheries & Aquaculture",
+    "slug": "fisheries",
+    "description": "Latest news, analysis, and reports on global fisheries management, aquaculture innovations, and sustainable seafood production.",
+    "color": "#26A69A",
+    "pattern": "pattern-fisheries.svg"
+  },
+  {
+    "id": "cat-marinetech",
+    "name": "Marine Technology",
+    "slug": "marinetech",
+    "description": "Exploring advancements in marine robotics, sensors, vessel design, communication systems, and underwater technology.",
+    "color": "#FFEE58",
+    "pattern": "pattern-marinetech.svg"
+  },
+  {
+    "id": "cat-markets",
+    "name": "Seafood Markets",
+    "slug": "markets",
+    "description": "Market trends, price analysis, trade reports, and consumer insights for the global seafood industry.",
+    "color": "#FF8A65",
+    "pattern": "pattern-markets.svg"
+  },
+  {
+    "id": "cat-offshore-energy",
+    "name": "Offshore Energy",
+    "slug": "offshore-energy",
+    "description": "Developments in offshore wind, oil & gas, wave energy, tidal power, and related infrastructure and services.",
+    "color": "#29B6F6",
+    "pattern": "pattern-offshore-energy.svg"
+  },
+  {
+    "id": "cat-policy",
+    "name": "Policy & Reports",
+    "slug": "policy",
+    "description": "Analysis of government regulations, international agreements, environmental policies, and key industry reports impacting marine economies.",
+    "color": "#9575CD",
+    "pattern": "pattern-policy.svg"
+  }
+]

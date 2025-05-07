@@ -1,0 +1,21 @@
+{
+  "name": "offshore-rapport-v3",
+  "version": "1.0.0",
+  "description": "Offshore Rapport v3 - Static Magazine Website",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "npx http-server -p 8080"
+  },
+  "keywords": [
+    "magazine",
+    "static-site",
+    "offshore",
+    "rapport"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

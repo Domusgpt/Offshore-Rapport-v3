@@ -1,0 +1,213 @@
+/*
+ * navigation.css - Navigation components for Offshore Rapport v2
+ * Contains styles for site header, main navigation, mobile menu, and other navigation elements
+ */
+
+/* ============================================
+   SITE HEADER (Base styles in main.css)
+   ============================================ */
+.header-container { /* Use this if needed within header */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo styling */
+.logo { /* Matches HTML */
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-black);
+  font-size: var(--font-size-xl);
+  color: var(--color-dark-blue, var(--color-primary-800)); /* Fallback from variables */
+  text-decoration: none;
+  transition: color var(--transition-normal) var(--transition-timing-ease);
+}
+
+.logo:hover {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+/* ============================================
+   MAIN NAVIGATION
+   ============================================ */
+.main-nav { /* Matches HTML */
+  /* display: flex;  -> Handled by media queries in main.css */
+  align-items: center;
+}
+
+.main-nav ul { /* Matches HTML */
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: var(--space-6);
+}
+
+.main-nav li { /* Target list items */
+  position: relative;
+}
+
+.nav-link { /* Matches HTML */
+  position: relative;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-gray-700);
+  text-decoration: none;
+  padding: var(--space-2) 0;
+  border-bottom: 2px solid transparent; /* From old styles */
+  transition: color 0.2s ease, border-color 0.2s ease; /* From old styles */
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+/* Active state with colored underline */
+.nav-link.active {
+  color: var(--color-primary);
+  border-color: var(--color-primary); /* Default active border */
+}
+
+/* Category-specific active/hover nav underlines */
+.nav-link.fisheries:hover, .nav-link.fisheries.active { border-color: var(--color-fisheries); }
+.nav-link.marinetech:hover, .nav-link.marinetech.active { border-color: var(--color-marinetech); }
+.nav-link.markets:hover, .nav-link.markets.active { border-color: var(--color-markets); }
+.nav-link.offshore-energy:hover, .nav-link.offshore-energy.active { border-color: var(--color-offshore-energy); }
+.nav-link.policy:hover, .nav-link.policy.active { border-color: var(--color-policy); }
+
+/* Remove the general ::after rule if using border-bottom */
+/* .nav-link::after { display: none; } */
+
+/* ============================================
+   DROPDOWN MENUS (If Added Later)
+   ============================================ */
+/* .nav-dropdown { ... } */
+/* .dropdown-toggle { ... } */
+/* .dropdown-menu { ... } */
+/* .dropdown-item { ... } */
+
+/* ============================================
+   MOBILE MENU
+   ============================================ */
+.menu-toggle { /* Matches HTML */
+  display: none; /* Controlled by media queries */
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  padding: var(--space-2);
+  position: relative;
+  z-index: calc(var(--z-sticky) + 1); /* Ensure it's above sticky header */
+}
+
+.menu-toggle span { /* Matches HTML */
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-text-primary);
+  margin: 5px auto; /* Center bars */
+  transition: transform 0.3s ease-in-out,
+              opacity 0.3s ease-in-out;
+}
+
+/* Hamburger to X animation */
+.menu-toggle.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile navigation container (applied to .main-nav when active) */
+/* Add class .mobile-nav-active to body or header when menu is open */
+@media (max-width: 1023px) {
+  .main-nav {
+    display: none; /* Hide by default on mobile */
+    position: absolute;
+    top: 100%; /* Position below header */
+    left: 0;
+    width: 100%;
+    background-color: var(--color-surface);
+    z-index: var(--z-dropdown);
+    padding: var(--space-4);
+    box-shadow: var(--shadow-lg);
+    border-top: 1px solid var(--color-border-light);
+    flex-direction: column; /* Stack items vertically */
+    align-items: stretch; /* Stretch items full width */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity var(--transition-normal) var(--transition-timing-ease),
+                visibility var(--transition-normal) var(--transition-timing-ease),
+                transform var(--transition-normal) var(--transition-timing-ease);
+  }
+
+  .main-nav.active { /* Class added by JS */
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .main-nav ul {
+    flex-direction: column; /* Stack items */
+    gap: 0;
+    width: 100%;
+  }
+
+  .main-nav li {
+    width: 100%;
+    border-bottom: 1px solid var(--color-neutral-200);
+  }
+   .main-nav li:last-child {
+     border-bottom: none;
+   }
+
+  .nav-link {
+    font-size: var(--font-size-base);
+    display: block;
+    padding: var(--space-3) var(--space-2);
+    border-bottom: none !important; /* Override underline styles */
+    text-align: center;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--color-primary);
+    background-color: var(--color-neutral-100);
+    border-color: transparent !important; /* Ensure no border */
+  }
+}
+
+
+/* ============================================
+   SECONDARY NAVIGATION (Example - Add if needed)
+   ============================================ */
+/* .secondary-nav { ... } */
+
+/* ============================================
+   BREADCRUMBS (Example - Add if needed)
+   ============================================ */
+/* .breadcrumbs { ... } */
+
+/* ============================================
+   PAGINATION (Example - Add if needed)
+   ============================================ */
+/* .pagination { ... } */
+
+/* ============================================
+   TABLE OF CONTENTS (Example - Add if needed)
+   ============================================ */
+/* .toc { ... } */
+
+/* ============================================
+   MEGAMENU (Example - Add if needed)
+   ============================================ */
+/* .megamenu { ... } */
