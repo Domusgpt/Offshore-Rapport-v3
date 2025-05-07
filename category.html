@@ -1,32 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categories - Offshore Rapport v3</title>
-    <link rel="stylesheet" href="css/main.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Title, Meta Description will be dynamically set -->
+  <title>Category Loading... | Offshore Rapport v3</title>
+  <link rel="stylesheet" href="css/main.css">
+  <meta name="description" content="Loading category details for Offshore Rapport v3.">
 </head>
-<body>
-    <header>
-        <h1>Offshore Rapport</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="category.html">Categories</a></li>
-                <li><a href="dashboard.html">Dashboard</a></li>
-            </ul>
+<!-- Body class will be dynamically set by JS, e.g., 'category-page fisheries' -->
+<body class="category-page loading">
+  <header class="site-header">
+    <div class="container">
+      <div class="header-top">
+        <a href="index.html" class="logo">Offshore Rapport v3</a>
+        <nav class="main-nav">
+           <ul>
+             <!-- Standard Nav Items -->
+             <li><a href="category.html?category=fisheries" class="nav-link fisheries">Fisheries & Aquaculture</a></li>
+             <li><a href="category.html?category=marinetech" class="nav-link marinetech">Marine Technology</a></li>
+             <li><a href="category.html?category=markets" class="nav-link markets">Seafood Markets</a></li>
+             <li><a href="category.html?category=offshore-energy" class="nav-link offshore-energy">Offshore Energy</a></li>
+             <li><a href="category.html?category=policy" class="nav-link policy">Policy & Reports</a></li>
+             <li><a href="index.html#podcast" class="nav-link">Podcast</a></li>
+          </ul>
         </nav>
-    </header>
-    
-    <main id="category-content">
-        <!-- Category content will be loaded dynamically -->
-    </main>
-    
-    <footer>
-        <p>&copy; 2025 Offshore Rapport v3</p>
-    </footer>
+        <button class="menu-toggle" aria-label="Toggle Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-    <script src="js/main.js"></script>
-    <script src="js/content-filter.js"></script>
+  <!-- Category Hero Section - Dynamic -->
+  <section class="category-hero">
+    <!-- Optional category-specific pattern div can be added dynamically -->
+    <!-- <div class="pattern-background pattern-fisheries"></div> -->
+    <div class="container category-hero-content">
+      <h1 id="category-title" class="category-title loading-placeholder">Category Name</h1>
+      <p id="category-description" class="category-description loading-placeholder">Category description loading...</p>
+      <!-- Optional Filters -->
+      <div class="category-filters">
+        <span class="filter-label">Filter by Topic:</span>
+        <div class="filter-buttons" id="tag-filter-container">
+          <!-- Tag buttons will be loaded here by JS -->
+          <div class="loading-indicator">Loading filters...</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Area -->
+  <main class="category-articles">
+    <div class="container">
+      <h2 class="section-title visually-hidden">Articles</h2> <!-- Title hidden if hero serves as title -->
+      <div class="article-grid" id="category-articles-grid">
+        <!-- Article cards will be loaded here by JS -->
+        <div class="loading-indicator">Loading articles...</div>
+      </div>
+
+      <!-- Optional: Load More Button -->
+      <!--
+      <div class="load-more-container">
+        <button id="load-more-btn" class="btn secondary load-more">Load More Articles</button>
+      </div>
+      -->
+    </div>
+  </main>
+
+   <!-- Optional: Trending Topics Section -->
+   <!--
+   <section class="trending-topics">
+     <div class="container">
+       <h2 class="section-title">Trending Topics</h2>
+       <div class="topics-grid" id="trending-topics-grid">
+         <!- - Topic cards loaded dynamically - ->
+       </div>
+     </div>
+   </section>
+   -->
+
+  <footer class="site-footer">
+     <!-- Footer content remains the same as index.html -->
+     <div class="container">
+        <div class="footer-content">
+          <div class="footer-branding">
+            <a href="index.html" class="footer-logo">Offshore Rapport v3</a>
+            <p class="footer-tagline">In-depth coverage of marine economies.</p>
+          </div>
+          <div class="footer-nav">
+            <div class="footer-nav-column">
+              <h4>Explore</h4>
+              <ul>
+                <li><a href="category.html?category=fisheries">Fisheries & Aquaculture</a></li>
+                <li><a href="category.html?category=marinetech">Marine Technology</a></li>
+                <li><a href="category.html?category=markets">Seafood Markets</a></li>
+                <li><a href="category.html?category=offshore-energy">Offshore Energy</a></li>
+                <li><a href="category.html?category=policy">Policy & Reports</a></li>
+              </ul>
+            </div>
+            <div class="footer-nav-column">
+              <h4>About Us</h4>
+              <ul>
+                <li><a href="#">Our Mission</a></li>
+                <li><a href="#">Contributors</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Advertise With Us</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </div>
+            <div class="footer-nav-column">
+              <h4>Resources</h4>
+              <ul>
+                <li><a href="index.html#podcast">Podcast</a></li>
+                <li><a href="#">Webinars</a></li>
+                <li><a href="#">Data & Reports Store</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© <script>document.write(new Date().getFullYear());</script> Offshore Rapport v3. All rights reserved.</p>
+          <div class="social-links">
+            <a href="#" aria-label="LinkedIn">LI</a>
+            <a href="#" aria-label="Twitter">TW</a>
+            <a href="#" aria-label="RSS Feed">RSS</a>
+          </div>
+        </div>
+      </div>
+  </footer>
+
+  <!-- Load JS at the end -->
+  <script src="js/data-loader.js"></script>
+  <script src="js/article-renderer.js"></script>
+  <script src="js/animation-manager.js"></script>
+  <script src="js/tag-filter.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
